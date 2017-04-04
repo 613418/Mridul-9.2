@@ -1,0 +1,35 @@
+Q. Explain the working of below pig script commands with an example :
+
+a) LOAD
+To Load the data from the file system (local/HDFS) into a relation.
+a = load '/hadoopdata/pig/A.txt' using PigStorage(',') as (a1:int, a2:int, a3:int);
+
+b) STORE
+To save a relation to the file system (local/HDFS).
+STORE l INTO '/pigoutput';
+
+c) DUMP
+To print the contents of a relation on the console.
+Dump a ;
+
+d) FOREACH
+To generate data transformations based on columns of data.
+l = FOREACH c GENERATE a1, a2, a2*a3;
+
+e) FILTER
+To remove unwanted rows from a relation.
+f = FILTER c by $1 > 3;
+
+f) GROUP BY 
+To group the data in a single relation.
+g = GROUP c by $2;
+g = GROUP c by ($0,$1); 
+h = GROUP c ALL;
+
+g) ORDER BY 
+To arrange a relation in a sorted order based on one or more fields (ascending or descending).
+f = order c by a1 desc ;
+
+h) DESCRIBE
+To describe the schema of a relation.
+describe f;
